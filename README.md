@@ -29,9 +29,11 @@ Sistema desktop para **gestão de estoque de uma loja de peças para motores**, 
 
 ## 🗄️ Banco de dados
 
-O sistema usa o banco `TocantinsMotoresDB`, com estas tabelas:
+Os scripts estão na pasta `banco/`. O sistema usa o banco `TocantinsMotoresDB`, com 17 tabelas:
 
-`Produtos` · `Estoques` · `Lojas` · `Movimentacoes` · `Movimentacoes_Itens` · `Usuarios` · `Perfis` · `Permissoes_Perfil` · `Fornecedores` · `Cotacoes` · `Cotacoes_Itens` · `Cotacoes_Precos` · `Logs_Sistema`
+`Produtos` · `Estoques` · `Lojas` · `Movimentacoes` · `Movimentacoes_Itens` · `Usuarios` · `Usuarios_Lojas` · `Perfis` · `Permissoes_Perfil` · `Fornecedores` · `Cotacoes` · `Cotacoes_Itens` · `Cotacoes_Precos` · `Logs_Sistema` · `Pedidos_Compra` · `Historico_Compras` · `NotasFiscais`
+
+> As tabelas `Pedidos_Compra`, `Historico_Compras`, `NotasFiscais` e `Usuarios_Lojas` já existem no banco, mas ainda não são usadas pelas telas atuais.
 
 ## ▶️ Como executar
 
@@ -41,10 +43,13 @@ O sistema usa o banco `TocantinsMotoresDB`, com estas tabelas:
    ```bash
    git clone https://github.com/PedroHenriquepso/TocantinsMotores.git
    ```
-2. Crie o banco `TocantinsMotoresDB` no SQL Server e as tabelas listadas acima.
+2. No SQL Server Management Studio, execute os dois scripts da pasta `banco/`, nesta ordem:
+   1. `criar_banco.sql`: cria o banco `TocantinsMotoresDB` e as tabelas
+   2. `dados_iniciais.sql`: cria as lojas, o perfil de administrador e um usuário para o primeiro acesso
 3. Abra `TocantinsMotores.slnx` no Visual Studio e restaure os pacotes NuGet.
 4. Se o seu SQL Server não for `localhost`, ajuste a string de conexão (`Server=...`) nos arquivos do projeto.
 5. Pressione **F5** para executar.
+6. Entre com o usuário **ADMIN** e a senha **admin123**. Troque essa senha logo no primeiro acesso, na tela de usuários.
 
 ## 🧠 O que aprendi
 
@@ -56,7 +61,6 @@ O sistema usa o banco `TocantinsMotoresDB`, com estas tabelas:
 
 ## 🗺️ Próximos passos
 
-- [ ] Adicionar o script `.sql` de criação do banco
 - [ ] Mover a string de conexão para o `App.config`
 - [ ] Adicionar capturas de tela ao README
 
