@@ -2,13 +2,13 @@
    Tocantins Motores - Dados iniciais
    Execute DEPOIS do criar_banco.sql.
 
-   Cria o mínimo para o sistema funcionar:
+   Cria o minimo para o sistema funcionar:
      - 2 lojas (Matriz e Distribuidora)
-     - perfil ADMINISTRADOR com todas as permissões
-     - usuário de demonstração para o primeiro acesso
+     - perfil ADMINISTRADOR com todas as permissoes
+     - usuario de demonstracao para o primeiro acesso
 
-   Primeiro acesso:   usuário: ADMIN    senha: admin123
-   TROQUE ESSA SENHA depois de entrar (Usuários > editar usuário).
+   Primeiro acesso:   usuario: ADMIN    senha: admin123
+   TROQUE ESSA SENHA depois de entrar (Usuarios > editar usuario).
    ===================================================================== */
 
 USE [TocantinsMotoresDB]
@@ -16,7 +16,7 @@ GO
 
 IF NOT EXISTS (SELECT 1 FROM Lojas)
 BEGIN
-    INSERT INTO Lojas (Nome, Ativa) VALUES ('MATRIZ (Paraíso)', 1);
+    INSERT INTO Lojas (Nome, Ativa) VALUES ('MATRIZ (Para' + NCHAR(237) + 'so)', 1);
     INSERT INTO Lojas (Nome, Ativa) VALUES ('DISTRIBUIDORA', 1);
 END
 GO
